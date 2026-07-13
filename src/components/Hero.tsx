@@ -84,9 +84,6 @@ export default function Hero() {
   const layer3X = useTransform(mouseX, [-0.5, 0.5], [-50, 50]);
   const layer3Y = useTransform(mouseY, [-0.5, 0.5], [-50, 50]);
 
-  const layer4X = useTransform(mouseX, [-0.5, 0.5], [-70, 70]);
-  const layer4Y = useTransform(mouseY, [-0.5, 0.5], [-70, 70]);
-
   const layer5X = useTransform(mouseX, [-0.5, 0.5], [-90, 90]);
   const layer5Y = useTransform(mouseY, [-0.5, 0.5], [-90, 90]);
 
@@ -211,58 +208,6 @@ export default function Hero() {
             Global Growth
           </p>
         </motion.div>
-      </motion.div>
-
-      <motion.div
-        className="absolute inset-0 flex items-center justify-center pointer-events-none"
-        style={{ x: layer4X, y: layer4Y }}
-      >
-        <div className="glass-card glass-card-hover rounded-3xl p-8 lg:p-12 max-w-3xl mx-4">
-          <div className="text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center space-x-2 glass-light px-4 py-2 rounded-full mb-6"
-            >
-              <span className="w-2 h-2 bg-success rounded-full animate-pulse" />
-              <span className="text-sm text-foreground-subtle">{t.hero.badge}</span>
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-base sm:text-lg lg:text-xl text-foreground-subtle max-w-2xl mx-auto mb-6 leading-relaxed"
-            >
-              {t.hero.subtitle}
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="grid grid-cols-3 gap-4 sm:gap-8 max-w-xl mx-auto"
-            >
-              {[
-                { value: '2000+', label: t.hero.stats.clients },
-                { value: '150+', label: t.hero.stats.countries },
-                { value: '300%', label: t.hero.stats.revenue },
-              ].map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  className="text-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1 + index * 0.15 }}
-                >
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient mb-1">{stat.value}</div>
-                  <div className="text-xs sm:text-sm text-foreground-subtle">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
       </motion.div>
 
       <motion.div

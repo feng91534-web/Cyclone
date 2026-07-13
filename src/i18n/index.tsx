@@ -18,6 +18,7 @@ export interface Translation {
     zh: string;
   };
   hero: {
+    badge: string;
     title: string;
     subtitle: string;
     cta: string;

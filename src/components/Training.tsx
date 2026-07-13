@@ -1,7 +1,7 @@
 'use client';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Clock, Users, BookOpen, Award, ChevronRight, Check } from 'lucide-react';
+import { Clock, Users, BookOpen, Award, ChevronRight, Check, Zap, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../i18n';
 
 const courses = [
@@ -28,6 +28,7 @@ const courses = [
       'Basic Negotiation',
     ],
     popular: false,
+    icon: BookOpen,
   },
   {
     titleZh: 'Facebook广告进阶班',
@@ -52,6 +53,7 @@ const courses = [
       'Data Analysis',
     ],
     popular: true,
+    icon: Zap,
   },
   {
     titleZh: 'WhatsApp私域运营大师班',
@@ -76,6 +78,7 @@ const courses = [
       'Conversion Optimization',
     ],
     popular: false,
+    icon: Users,
   },
 ];
 
@@ -92,78 +95,108 @@ export default function Training() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="training" ref={ref} className="py-24 bg-card">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="training" ref={ref} className="py-24 lg:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-glow-accent opacity-30" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 lg:mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-block glass-light px-4 py-2 rounded-full text-sm text-foreground-subtle mb-6"
+          >
+            {locale === 'zh' ? '培训课程' : 'Training Courses'}
+          </motion.span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 tracking-tight">
             <span className="text-gradient">{t.training.title}</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg lg:text-xl text-foreground-subtle max-w-2xl mx-auto">
             {t.training.subtitle}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {courses.map((course, index) => (
             <motion.div
               key={course.titleEn}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative rounded-2xl overflow-hidden ${course.popular ? 'ring-2 ring-primary' : ''}`}
+              whileHover={{ y: -8 }}
+              className={`glass-card glass-card-hover rounded-2xl overflow-hidden relative ${course.popular ? 'ring-1 ring-primary/40' : ''}`}
             >
               {course.popular && (
-                <div className="absolute top-4 right-4 bg-gradient-primary text-white text-xs px-3 py-1 rounded-full z-10">
-                  {locale === 'zh' ? '最受欢迎' : 'Most Popular'}
+                <div className="absolute top-4 right-4 z-10">
+                  <div className="bg-gradient-primary text-white text-xs px-3 py-1.5 rounded-full flex items-center space-x-1">
+                    <Zap className="w-3 h-3" />
+                    <span>{locale === 'zh' ? '最受欢迎' : 'Most Popular'}</span>
+                  </div>
                 </div>
               )}
 
-              <div className={`p-6 ${course.popular ? 'bg-gradient-to-br from-primary/10 to-accent/10' : 'glass'}`}>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-medium bg-secondary px-3 py-1 rounded-full">
-                    {locale === 'zh' ? course.levelZh : course.levelEn}
-                  </span>
-                  <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                    <span className="flex items-center">
-                      <Clock className="w-4 h-4 mr-1" />
-                      {locale === 'zh' ? course.duration : course.durationEn}
-                    </span>
-                    <span className="flex items-center">
-                      <Users className="w-4 h-4 mr-1" />
-                      {course.students}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+              <div className="p-6 lg:p-8 relative">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center space-x-3">
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${course.popular ? 'bg-gradient-primary text-white' : 'bg-primary/10 text-primary'}`}>
+                      <course.icon className="w-5 h-5" />
+                    </div>
+                    <span className={`text-xs font-semibold px-3 py-1 rounded-full ${course.popular ? 'bg-primary/20 text-primary-light' : 'bg-background/60 text-foreground-subtle'}`}>
+                      {locale === 'zh' ? course.levelZh : course.levelEn}
                     </span>
                   </div>
                 </div>
 
-                <h3 className="text-xl font-semibold mb-2">{locale === 'zh' ? course.titleZh : course.titleEn}</h3>
-
-                <div className="flex items-center space-x-2 mb-6">
-                  <span className="text-3xl font-bold text-gradient">{course.price}</span>
-                  <span className="text-sm text-muted-foreground line-through">{course.originalPrice}</span>
-                  <span className="text-xs">{locale === 'zh' ? '元' : 'CNY'}</span>
+                <div className="flex items-center space-x-4 text-sm text-foreground-subtle mb-4">
+                  <span className="flex items-center">
+                    <Clock className="w-4 h-4 mr-1.5" />
+                    {locale === 'zh' ? course.duration : course.durationEn}
+                  </span>
+                  <span className="flex items-center">
+                    <Users className="w-4 h-4 mr-1.5" />
+                    {course.students} {locale === 'zh' ? '学员' : 'students'}
+                  </span>
                 </div>
 
-                <ul className="space-y-3 mb-6">
-                  {(locale === 'zh' ? course.featuresZh : course.featuresEn).map((feature) => (
-                    <li key={feature} className="flex items-center text-sm">
-                      <Check className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
+                <h3 className="text-xl lg:text-2xl font-semibold text-foreground mb-4">{locale === 'zh' ? course.titleZh : course.titleEn}</h3>
+
+                <div className="flex items-baseline space-x-3 mb-6">
+                  <span className="text-4xl font-bold text-gradient">{course.price}</span>
+                  <span className="text-lg text-foreground-subtle line-through">{course.originalPrice}</span>
+                  <span className="text-sm text-foreground-subtle">{locale === 'zh' ? '元' : 'CNY'}</span>
+                </div>
+
+                <div className="space-y-3 mb-8">
+                  {(locale === 'zh' ? course.featuresZh : course.featuresEn).map((feature, idx) => (
+                    <motion.div
+                      key={feature}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.3, delay: 0.3 + index * 0.1 + idx * 0.05 }}
+                      className="flex items-center text-sm"
+                    >
+                      <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center mr-3 flex-shrink-0">
+                        <Check className="w-3 h-3 text-green-400" />
+                      </div>
+                      <span className="text-foreground-muted">{feature}</span>
+                    </motion.div>
                   ))}
-                </ul>
+                </div>
 
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`w-full py-3 rounded-xl font-medium flex items-center justify-center space-x-2 ${course.popular ? 'bg-gradient-primary text-white' : 'border border-border hover:bg-secondary'}`}
+                  className={`w-full py-4 rounded-xl font-semibold flex items-center justify-center space-x-2 ${course.popular ? 'bg-gradient-primary text-white click-scale glow-border' : 'border border-border hover:border-primary/50 hover:bg-primary/5 transition-all click-scale'}`}
                 >
                   <span>{locale === 'zh' ? '立即报名' : 'Enroll Now'}</span>
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-5 h-5" />
                 </motion.button>
               </div>
             </motion.div>
@@ -174,15 +207,42 @@ export default function Training() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="mt-12 lg:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6"
         >
-          {stats.map((stat) => (
-            <div key={stat.labelEn} className="text-center glass rounded-xl p-6">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.labelEn}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+              whileHover={{ y: -4 }}
+              className="glass-card glass-card-hover rounded-xl p-6 text-center cursor-pointer"
+            >
               <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-              <div className="text-2xl font-bold text-gradient">{stat.value}</div>
-              <div className="text-sm text-muted-foreground">{locale === 'zh' ? stat.labelZh : stat.labelEn}</div>
-            </div>
+              <div className="text-3xl lg:text-4xl font-bold text-gradient mb-1">{stat.value}</div>
+              <div className="text-sm text-foreground-subtle">{locale === 'zh' ? stat.labelZh : stat.labelEn}</div>
+            </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-center mt-12 lg:mt-16"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-primary text-white px-8 py-4 rounded-xl font-semibold flex items-center space-x-2 mx-auto click-scale glow-border"
+          >
+            <BookOpen className="w-5 h-5" />
+            <span>{locale === 'zh' ? '查看全部课程' : 'View All Courses'}</span>
+            <ArrowRight className="w-5 h-5" />
+          </motion.button>
+          <p className="mt-4 text-sm text-foreground-subtle">
+            {locale === 'zh' ? '不确定选哪门课？预约免费咨询，帮您推荐最适合的课程' : 'Not sure which course? Book a free consultation to get personalized recommendations'}
+          </p>
         </motion.div>
       </div>
     </section>

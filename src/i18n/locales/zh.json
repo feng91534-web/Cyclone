@@ -1,0 +1,94 @@
+{
+  "navbar": {
+    "home": "首页",
+    "services": "服务",
+    "cases": "案例",
+    "training": "培训",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "getStarted": "立即开始",
+    "en": "English",
+    "zh": "中文"
+  },
+  "hero": {
+    "title": "全球外贸增长引擎",
+    "subtitle": "AI驱动的数字化营销解决方案，助力中国企业开拓全球市场",
+    "cta": "免费咨询",
+    "secondaryCta": "了解更多",
+    "stats": {
+      "clients": "服务客户",
+      "countries": "覆盖国家",
+      "revenue": "营收增长"
+    }
+  },
+  "services": {
+    "title": "核心服务",
+    "subtitle": "一站式外贸增长解决方案",
+    "facebookAds": {
+      "title": "Facebook广告获客",
+      "description": "精准定位海外目标客户，通过AI优化广告投放策略"
+    },
+    "whatsappSales": {
+      "title": "WhatsApp销售转化",
+      "description": "高效的客户沟通工具，提升销售转化率"
+    },
+    "customerAcquisition": {
+      "title": "海外客户开发",
+      "description": "多渠道客户开发，建立稳定的海外客户资源"
+    },
+    "logistics": {
+      "title": "物流与履约",
+      "description": "全球物流网络，高效可靠的跨境交付服务"
+    },
+    "payment": {
+      "title": "国际支付解决方案",
+      "description": "安全便捷的跨境支付，支持多种主流货币"
+    },
+    "training": {
+      "title": "外贸培训",
+      "description": "专业的外贸实战培训，提升团队业务能力"
+    }
+  },
+  "map": {
+    "title": "全球业务覆盖",
+    "subtitle": "我们的服务网络遍布全球"
+  },
+  "metrics": {
+    "title": "实时数据看板",
+    "subtitle": "业务增长一目了然"
+  },
+  "aiAnalyzer": {
+    "title": "AI市场分析",
+    "subtitle": "智能洞察全球市场趋势"
+  },
+  "cases": {
+    "title": "成功案例",
+    "subtitle": "见证客户的海外增长故事"
+  },
+  "training": {
+    "title": "外贸精英训练营",
+    "subtitle": "系统化的外贸实战课程"
+  },
+  "contact": {
+    "title": "开始您的全球之旅",
+    "subtitle": "填写表单，获取专属解决方案",
+    "name": "姓名",
+    "company": "公司名称",
+    "email": "邮箱",
+    "phone": "电话",
+    "message": "留言",
+    "submit": "提交"
+  },
+  "footer": {
+    "title": "GlobalGrowth",
+    "description": "AI驱动的全球外贸增长平台",
+    "links": {
+      "services": "服务",
+      "cases": "案例",
+      "training": "培训",
+      "about": "关于我们",
+      "contact": "联系我们"
+    },
+    "copyright": "2024 GlobalGrowth. All rights reserved."
+  }
+}

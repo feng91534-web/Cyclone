@@ -1,0 +1,94 @@
+{
+  "navbar": {
+    "home": "Home",
+    "services": "Services",
+    "cases": "Cases",
+    "training": "Training",
+    "about": "About",
+    "contact": "Contact",
+    "getStarted": "Get Started",
+    "en": "English",
+    "zh": "中文"
+  },
+  "hero": {
+    "title": "Global Foreign Trade Growth Engine",
+    "subtitle": "AI-powered digital marketing solutions to help Chinese enterprises expand globally",
+    "cta": "Free Consultation",
+    "secondaryCta": "Learn More",
+    "stats": {
+      "clients": "Clients",
+      "countries": "Countries",
+      "revenue": "Revenue Growth"
+    }
+  },
+  "services": {
+    "title": "Core Services",
+    "subtitle": "One-stop foreign trade growth solutions",
+    "facebookAds": {
+      "title": "Facebook Ads Lead Generation",
+      "description": "Precise targeting of overseas customers with AI-optimized ad strategies"
+    },
+    "whatsappSales": {
+      "title": "WhatsApp Sales Conversion",
+      "description": "Efficient customer communication tools to boost sales conversion"
+    },
+    "customerAcquisition": {
+      "title": "Overseas Customer Acquisition",
+      "description": "Multi-channel customer development, building stable overseas resources"
+    },
+    "logistics": {
+      "title": "Logistics & Fulfillment",
+      "description": "Global logistics network for efficient cross-border delivery"
+    },
+    "payment": {
+      "title": "International Payment Solutions",
+      "description": "Secure and convenient cross-border payments supporting major currencies"
+    },
+    "training": {
+      "title": "Foreign Trade Training",
+      "description": "Professional practical training to enhance team capabilities"
+    }
+  },
+  "map": {
+    "title": "Global Coverage",
+    "subtitle": "Our service network spans the globe"
+  },
+  "metrics": {
+    "title": "Real-time Metrics",
+    "subtitle": "Business growth at a glance"
+  },
+  "aiAnalyzer": {
+    "title": "AI Market Analyzer",
+    "subtitle": "Intelligent insights into global market trends"
+  },
+  "cases": {
+    "title": "Success Cases",
+    "subtitle": "Witness our clients' global growth stories"
+  },
+  "training": {
+    "title": "Trade Elite Training",
+    "subtitle": "Systematic practical foreign trade courses"
+  },
+  "contact": {
+    "title": "Start Your Global Journey",
+    "subtitle": "Fill out the form to get your customized solution",
+    "name": "Name",
+    "company": "Company",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "submit": "Submit"
+  },
+  "footer": {
+    "title": "GlobalGrowth",
+    "description": "AI-powered global foreign trade growth platform",
+    "links": {
+      "services": "Services",
+      "cases": "Cases",
+      "training": "Training",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "copyright": "2024 GlobalGrowth. All rights reserved."
+  }
+}

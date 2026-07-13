@@ -1,0 +1,53 @@
+# Netlify 部署配置
+# 详见：https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # 构建命令
+  command = "npm run build"
+  # 构建产物目录（Next.js 静态导出输出到 dist）
+  publish = "dist"
+
+[build.environment]
+  # Node 版本
+  NODE_VERSION = "20"
+  # Next.js 版本
+  NEXT_VERSION = "15"
+
+# 默认头部配置
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# 静态资源长缓存
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# SVG / 图标缓存
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# robots.txt 不缓存
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# SPA 回退：所有路由指向 index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

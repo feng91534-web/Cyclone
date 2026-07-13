@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://globalgrowth.example.com/sitemap.xml
+
+# Disallow build artifacts just in case
+Disallow: /dist/
+Disallow: /.next/

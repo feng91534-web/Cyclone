@@ -2,8 +2,8 @@
 # 详见：https://docs.netlify.com/configure-builds/file-based-configuration/
 
 [build]
-  # 构建命令
-  command = "npm run build"
+  # 构建命令：先清理旧依赖再重新安装，确保 Linux 原生模块正确安装
+  command = "rm -rf node_modules package-lock.json && npm install && npm run build"
   # 构建产物目录（Next.js 静态导出输出到 dist）
   publish = "dist"
 

@@ -38,11 +38,12 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           <motion.a
             href="#"
-            className="text-xl sm:text-2xl font-bold text-gradient tracking-tight"
+            className="flex flex-col items-start"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            GlobalGrowth
+            <span className="text-xl sm:text-2xl font-bold text-white tracking-tighter">NZFK</span>
+            <span className="text-[10px] sm:text-xs text-foreground-subtle tracking-widest uppercase">Global Growth</span>
           </motion.a>
 
           <div className="hidden md:flex items-center space-x-8">

@@ -61,11 +61,9 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                  <Globe className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xl font-bold text-white">GlobalGrowth</span>
+              <div className="mb-4">
+                <div className="text-xl font-bold text-white tracking-tighter mb-1">NZFK</div>
+                <div className="text-xs text-foreground-subtle tracking-widest uppercase">Global Growth</div>
               </div>
               <p className="text-muted-foreground mb-6 max-w-sm">
                 {locale === 'zh' ? '专注于帮助中国企业拓展海外市场，通过数字化营销和智能工具实现全球化增长。' : 'Focused on helping Chinese enterprises expand into overseas markets, achieving global growth through digital marketing and intelligent tools.'}
@@ -112,7 +110,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <p className="text-sm text-muted-foreground">
-              {locale === 'zh' ? '2024 GlobalGrowth. 保留所有权利。' : '2024 GlobalGrowth. All rights reserved.'}
+              2024 Guangzhou NZFK Technology Co., Ltd. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm text-muted-foreground">
               <a href="#" className="hover:text-white transition-colors">{locale === 'zh' ? '隐私政策' : 'Privacy Policy'}</a>
